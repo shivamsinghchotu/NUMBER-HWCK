@@ -8,90 +8,75 @@
 <style>
 body{
     margin:0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(145deg,#05070d,#0b1230,#05070d);
+    font-family:sans-serif;
+    background:#05070d;
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     color:white;
 }
-
 .container{
     width:90%;
-    max-width:380px;
+    max-width:360px;
     padding:25px;
     border-radius:20px;
-    background: linear-gradient(145deg,#081020,#02040a);
-    box-shadow: 0 0 30px rgba(0,255,255,0.15);
+    background:#081020;
 }
-
 .title{
     text-align:center;
-    font-size:32px;
-    font-weight:bold;
+    font-size:26px;
     color:#00fff0;
-    text-shadow:0 0 12px rgba(0,255,255,0.8);
 }
-
 .subtitle{
     text-align:center;
-    margin-top:5px;
+    font-size:13px;
     color:#ffc84d;
-    font-size:14px;
 }
-
-.label{
-    margin-top:30px;
-    color:#9aff4f;
-    font-size:16px;
-}
-
-.input-box{
-    margin-top:10px;
+.input{
+    width:100%;
     padding:14px;
+    margin-top:15px;
     border-radius:14px;
     border:1px solid #9aff4f;
     background:#020409;
     color:white;
     font-size:16px;
-    width:100%;
-    outline:none;
 }
-
-.result-box{
-    margin-top:30px;
-    height:140px;
+.result{
+    margin-top:20px;
+    height:110px;
     border-radius:18px;
-    background:linear-gradient(145deg,#020409,#0a1430);
+    background:#020409;
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:48px;
-    font-weight:bold;
+    justify-content:center;
+    font-size:46px;
     color:#ff2e2e;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
 }
-
 .btn{
-    margin-top:25px;
     width:100%;
-    padding:16px;
+    margin-top:15px;
+    padding:15px;
     border:none;
     border-radius:16px;
-    background:linear-gradient(145deg,#ffcc33,#ffb300);
+    background:#ffcc33;
     font-size:18px;
     font-weight:bold;
-    cursor:pointer;
-    color:black;
-    box-shadow:0 0 20px rgba(255,200,0,0.6);
 }
 
-.footer{
-    margin-top:18px;
-    text-align:center;
-    font-size:12px;
-    color:#9aa0b5;
+/* Admin Panel */
+#adminPanel{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:15px;
+    background:#020409;
+}
+.admin-title{
+    color:#9aff4f;
+    font-size:14px;
+    margin-bottom:10px;
 }
 </style>
 </head>
@@ -99,35 +84,67 @@ body{
 <body>
 
 <div class="container">
-    <div class="title">BLACKY</div>
-    <div class="title">SERVER 3.2</div>
-    <div class="subtitle">Quantum AI Prediction System</div>
+    <div class="title">BLACKY SERVER 3.2</div>
+    <div class="subtitle">Demo Prediction System</div>
 
-    <div class="label">Enter Period Number</div>
-    <input id="period" class="input-box" placeholder="Enter game period"/>
+    <input id="periodInput" class="input" placeholder="Enter Period Number">
 
-    <div id="result" class="result-box">?</div>
+    <div id="result" class="result">?</div>
 
-    <button class="btn" onclick="getPrediction()">👑 Get Prediction</button>
+    <button class="btn" onclick="getResult()">Get Result</button>
+    <button class="btn" onclick="adminLogin()">Admin Login</button>
 
-    <div class="footer">
-        Powered by Quantum Matrix AI | 99.9% Accuracy
+    <!-- ADMIN PANEL -->
+    <div id="adminPanel">
+        <div class="admin-title">Admin Control</div>
+        <input id="adminPeriod" class="input" placeholder="Period to control">
+        <input id="adminValue" class="input" placeholder="Result number">
+        <button class="btn" onclick="setAdminResult()">Set Result</button>
     </div>
 </div>
 
 <script>
-function getPrediction(){
-    let period = document.getElementById("period").value;
+let adminData = {}; // period : result
+const ADMIN_PASS = "BLACKY123";
 
-    if(period === ""){
-        alert("Please enter period number");
+function adminLogin(){
+    let p = prompt("Admin Password");
+    if(p === ADMIN_PASS){
+        document.getElementById("adminPanel").style.display = "block";
+        alert("Admin Panel Opened");
+    }else{
+        alert("Wrong Password");
+    }
+}
+
+function setAdminResult(){
+    let p = document.getElementById("adminPeriod").value;
+    let v = document.getElementById("adminValue").value;
+
+    if(p === "" || v === ""){
+        alert("Fill both fields");
         return;
     }
 
-    // Random number (0 to 9)
-    let randomNumber = Math.floor(Math.random() * 10);
+    adminData[p] = v;
+    alert("Result saved for period " + p);
+}
 
-    document.getElementById("result").innerText = randomNumber;
+function getResult(){
+    let p = document.getElementById("periodInput").value;
+    if(p === ""){
+        alert("Enter period number");
+        return;
+    }
+
+    let out;
+    if(adminData[p] !== undefined){
+        out = adminData[p];
+    }else{
+        out = Math.floor(Math.random() * 10);
+    }
+
+    document.getElementById("result").innerText = out;
 }
 </script>
 
