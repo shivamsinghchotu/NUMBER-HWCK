@@ -1,111 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NEXXXX OP 🚀 - Login</title>
-  <style>
-    :root{--bg1:#00111a;--bg2:#001f2b;--accent1:#00ffc3;--accent2:#00aaff;}
-    *{box-sizing:border-box} html,body{height:100%}
-    body{
-      margin:0; font-family:"Poppins",sans-serif;
-      background:
-        radial-gradient(800px 400px at 10% 20%, rgba(0,200,150,0.06), transparent 10%),
-        radial-gradient(700px 350px at 85% 80%, rgba(0,160,255,0.04), transparent 10%),
-        linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:#e6f7f1; display:flex; align-items:center; justify-content:center; padding:28px;
-    }
-    .help-btn{position:fixed; top:18px; right:18px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); border:none; color:#001; font-weight:700; padding:8px 14px; border-radius:22px; cursor:pointer;}
-    .card{width:360px; max-width:92vw; background:rgba(0,20,40,0.9); border-radius:16px; padding:28px; position:relative; box-shadow:0 12px 30px rgba(3,15,20,0.6); border:1px solid rgba(0,200,160,0.06); text-align:center;}
-    .brand{font-size:26px; letter-spacing:3px; color:var(--accent1); font-weight:800; margin-bottom:6px;}
-    .sub{color:rgba(200,220,215,0.6); font-size:13px; margin-bottom:16px;}
-    .input{width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:rgba(255,255,255,0.04); color:#eaf9f2; outline:none; font-size:14px; margin:8px 0;}
-    .input::placeholder{color:rgba(230,247,241,0.45)}
-    .input:focus{box-shadow:0 8px 28px rgba(0,170,150,0.08); border:1px solid rgba(0,200,160,0.12)}
-    .btn-login{width:100%; padding:12px; margin-top:6px; border-radius:10px; border:none; cursor:pointer; font-weight:700; font-size:15px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#001;}
-    .links{margin-top:12px; font-size:13px; color:rgba(200,220,215,0.6);}
-    .links a{color:var(--accent1); cursor:pointer; text-decoration:none; font-weight:600}
-    @media (max-width:420px){ .card{padding:20px} .brand{font-size:22px} }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACKY SERVER 3.2</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(145deg,#05070d,#0b1230,#05070d);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:380px;
+    padding:25px;
+    border-radius:20px;
+    background: linear-gradient(145deg,#081020,#02040a);
+    box-shadow: 0 0 30px rgba(0,255,255,0.15);
+}
+
+.title{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    color:#00fff0;
+    text-shadow:0 0 12px rgba(0,255,255,0.8);
+}
+
+.subtitle{
+    text-align:center;
+    margin-top:5px;
+    color:#ffc84d;
+    font-size:14px;
+}
+
+.label{
+    margin-top:30px;
+    color:#9aff4f;
+    font-size:16px;
+}
+
+.input-box{
+    margin-top:10px;
+    padding:14px;
+    border-radius:14px;
+    border:1px solid #9aff4f;
+    background:#020409;
+    color:white;
+    font-size:16px;
+    width:100%;
+    outline:none;
+}
+
+.result-box{
+    margin-top:30px;
+    height:140px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#020409,#0a1430);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:48px;
+    font-weight:bold;
+    color:#ff2e2e;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.btn{
+    margin-top:25px;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(145deg,#ffcc33,#ffb300);
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    color:black;
+    box-shadow:0 0 20px rgba(255,200,0,0.6);
+}
+
+.btn:active{
+    transform:scale(0.98);
+}
+
+.footer{
+    margin-top:18px;
+    text-align:center;
+    font-size:12px;
+    color:#9aa0b5;
+}
+</style>
 </head>
+
 <body>
 
-  <button class="help-btn" onclick="openHelp()">HELP 📘</button>
+<div class="container">
+    <div class="title">BLACKY</div>
+    <div class="title">SERVER 3.2</div>
+    <div class="subtitle">Quantum AI Prediction System</div>
 
-  <div class="card" role="main" aria-labelledby="brand-title">
-    <div id="brand-title" class="brand">NEXXXX OP <span style="font-size:18px; transform:translateY(-1px)">🚀</span></div>
-    <div class="sub">Enter your Username and Access Key to continue</div>
+    <div class="label">Enter Period Number</div>
+    <input class="input-box" value="20260108100010923"/>
 
-    <input id="username" class="input" type="text" placeholder="Enter Username" autocomplete="username">
-    <input id="accesskey" class="input" type="password" placeholder="Enter Access Key" autocomplete="current-password">
-    <button class="btn-login" onclick="login()">LOGIN</button>
+    <div class="result-box">6</div>
 
-    <div class="links" style="margin-top:10px">Forgot Key? <a onclick="resetKey()">Reset</a></div>
-  </div>
+    <button class="btn">👑 Get Prediction</button>
 
-  <script>
-    // ===== CONFIGURE HERE =====
-    const CORRECT_USERNAME = "NEXXOP2025";
-    const CORRECT_ACCESS_KEY = "OPKEY786";
+    <div class="footer">
+        Powered by Quantum Matrix AI | 99.9% Accuracy
+    </div>
+</div>
 
-    // Put the external website URL you want to go to after successful login.
-    // Example formats:
-    // "https://shivamsinghchotu.github.io/Shivampro/"
-    // "https://t.me/YourTelegramGroup"
-    // "https://www.yoursite.com/path"
-    const REDIRECT_URL = "https://shivamsinghchotu.github.io/Shivampro/"; // <-- CHANGE THIS to your target site
-
-    // ===== LOGIC =====
-    function login(){
-      const u = document.getElementById('username').value.trim();
-      const k = document.getElementById('accesskey').value.trim();
-
-      if(!u || !k){
-        alert("Please enter username and access key.");
-        return;
-      }
-
-      if(u === CORRECT_USERNAME && k === CORRECT_ACCESS_KEY){
-        document.querySelector('.btn-login').textContent = "Redirecting...";
-        // short delay for UX, then redirect to external site
-        setTimeout(()=> {
-          // If you want to pass username to the external site as a param (optional), uncomment next line:
-          // window.location.href = REDIRECT_URL + "?user=" + encodeURIComponent(u);
-          window.location.href = REDIRECT_URL;
-        }, 500);
-      } else {
-        shakeCard();
-        alert("Incorrect Username or Access Key!");
-      }
-    }
-
-    function resetKey(){
-      document.getElementById('username').value = "";
-      document.getElementById('accesskey').value = "";
-      alert("Fields cleared. Contact admin to get a new access key.");
-    }
-
-    function openHelp(){
-      alert("Help:\n• Username: " + CORRECT_USERNAME + "\n• Access Key: " + CORRECT_ACCESS_KEY + "\n\nChange REDIRECT_URL variable in the script to the website you want to open after login.");
-    }
-
-    function shakeCard(){
-      const el = document.querySelector('.card');
-      el.style.transition = "transform 0.08s";
-      el.style.transform = "translateX(-8px)";
-      setTimeout(()=> el.style.transform = "translateX(8px)", 80);
-      setTimeout(()=> el.style.transform = "translateX(-5px)", 160);
-      setTimeout(()=> el.style.transform = "translateX(5px)", 240);
-      setTimeout(()=> { el.style.transform = ""; el.style.transition=""; }, 320);
-    }
-
-    // Submit on Enter
-    document.addEventListener('keydown', function(e){
-      if(e.key === "Enter"){
-        const focused = document.activeElement;
-        if(focused && (focused.id === 'username' || focused.id === 'accesskey')) login();
-      }
-    });
-  </script>
 </body>
 </html>
