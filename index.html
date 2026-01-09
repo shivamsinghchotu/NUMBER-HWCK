@@ -87,10 +87,6 @@ body{
     box-shadow:0 0 20px rgba(255,200,0,0.6);
 }
 
-.btn:active{
-    transform:scale(0.98);
-}
-
 .footer{
     margin-top:18px;
     text-align:center;
@@ -108,16 +104,32 @@ body{
     <div class="subtitle">Quantum AI Prediction System</div>
 
     <div class="label">Enter Period Number</div>
-    <input class="input-box" value="20260108100010923"/>
+    <input id="period" class="input-box" placeholder="Enter game period"/>
 
-    <div class="result-box">6</div>
+    <div id="result" class="result-box">?</div>
 
-    <button class="btn">👑 Get Prediction</button>
+    <button class="btn" onclick="getPrediction()">👑 Get Prediction</button>
 
     <div class="footer">
         Powered by Quantum Matrix AI | 99.9% Accuracy
     </div>
 </div>
+
+<script>
+function getPrediction(){
+    let period = document.getElementById("period").value;
+
+    if(period === ""){
+        alert("Please enter period number");
+        return;
+    }
+
+    // Random number (0 to 9)
+    let randomNumber = Math.floor(Math.random() * 10);
+
+    document.getElementById("result").innerText = randomNumber;
+}
+</script>
 
 </body>
 </html>
